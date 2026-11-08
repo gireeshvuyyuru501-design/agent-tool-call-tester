@@ -1,0 +1,10 @@
+[
+  {"id": "valid-search", "call": {"tool": "search_docs", "arguments": {"query": "return policy", "limit": 5}}, "expected_valid": true},
+  {"id": "valid-order", "call": {"tool": "get_order", "arguments": {"order_id": "A-102"}}, "expected_valid": true},
+  {"id": "valid-calc", "call": {"tool": "calculate", "arguments": {"a": 3, "b": 4, "operation": "multiply"}}, "expected_valid": true},
+  {"id": "missing-query", "call": {"tool": "search_docs", "arguments": {}}, "expected_valid": false},
+  {"id": "unknown-tool", "call": {"tool": "delete_everything", "arguments": {}}, "expected_valid": false},
+  {"id": "wrong-type", "call": {"tool": "get_order", "arguments": {"order_id": 123}}, "expected_valid": false},
+  {"id": "extra-field", "call": {"tool": "search_docs", "arguments": {"query": "policy", "admin": true}}, "expected_valid": false},
+  {"id": "bad-operation", "call": {"tool": "calculate", "arguments": {"a": 1, "b": 2, "operation": "power"}}, "expected_valid": false}
+]
